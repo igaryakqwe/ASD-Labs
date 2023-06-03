@@ -24,7 +24,7 @@ double **randm(int n) {
 double **mulmr(double **matrix, int n) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      matrix[i][j] *= 1.0 - 0.02 - 0.005 - 0.25;
+      matrix[i][j] *= 1.0 - 0.01 - 0.02 - 0.25;
       matrix[i][j] = matrix[i][j] < 1 ? 0 : 1;
     }
   }
@@ -188,168 +188,148 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam) {
       HPEN KPen = CreatePen(PS_SOLID, 1, RGB(20, 20, 5));
       SelectObject(hdc, KPen);
       if (buttonState) {
-      Rectangle(hdc, 0, 0, 900, 700);
-      // 1
-      arrow(-60, nx[8] - dx * 0.4, ny[8] - dy * 0.9, NULL);
-      arrow(-30.0, nx[3] - dx * 0.6, ny[3] - dy * 0.7, NULL);
-      Line(1,2, nx, ny);
-      Line(1, 6, nx, ny);
-      Line(1,9,nx, ny);
-      arrow(-30.0, nx[2] - dx * 0.6, ny[2] - dy * 0.9, NULL);
-      arrow(-15.0,nx[5]-dx,ny[5] - dy * 0.3, NULL);
+        Rectangle(hdc, 0, 0, 900, 700);
+        // 1
+        arrow(-60, nx[8] - dx * 0.4, ny[8] - dy * 0.9, NULL);
+        arrow(-30.0, nx[3] - dx * 0.6, ny[3] - dy * 0.7, NULL);
+        Line(1,2, nx, ny);
+        Line(1,9,nx, ny);
 
-      // 2
-      Ellipse(hdc, nx[1] + 30, ny[1] - 50, nx[1] - 30, ny[1]);
-      Line(2,3,nx, ny);
-      Line(2,6, nx, ny);
-      Line(2,7, nx, ny);
-      Line(2,8, nx, ny);
-      Line(2,9, nx, ny);
-      Line(2,10, nx, ny);
-      Line(2,11, nx, ny);
-      arrow(180,nx[0] + dx,ny[0], NULL);
-      arrow(-130,nx[1] + dx,ny[1] - dy * 0.3, NULL);
-      arrow(0,nx[2]-dx,ny[2], NULL);
-      arrow(-40.0, nx[6] - dx * 0.6, ny[6] - dy * 0.7, NULL);
-      arrow(-60.0, nx[7] - dx * 0.5, ny[7] - dy, NULL);
-      arrow(-75, nx[8] - dx * 0.2, ny[8] - dy, NULL);
-      arrow(-100, nx[9] - dx * 0.1, ny[9] - dy * 0.9, NULL);
-      arrow(-110.0, nx[10] - dx * -0.3, ny[10] - dy * 0.9, NULL);
-      arrow(-30.0, nx[4] - dx * 0.6, ny[4] - dy * 0.7, NULL);
-      arrow(-45.0, nx[4] - dx * 0.6, ny[4] - dy * 0.8, NULL);
-      // 3
-      arrow(180,nx[1] + dx,ny[1], NULL);
-      arrow(-90,nx[8],ny[8] - dy, NULL);
-      Arc(hdc, nx[0], ny[0] - 40, nx[2], ny[2] + 40, nx[2], ny[2], nx[0], ny[0]);
-      Line(3,8,nx, ny);
-      Line(3,9,nx, ny);
-      Line(3,10,nx, ny);
+        // 2
+        Ellipse(hdc, nx[1] + 30, ny[1] - 50, nx[1] - 30, ny[1]);
+        Line(2,3,nx, ny);
+        Arc(hdc, nx[1], ny[1] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[1], ny[1]);
+        Line(2,6, nx, ny);
+        Line(2,7, nx, ny);
+        Line(2,8, nx, ny);
+        Line(2,9, nx, ny);
+        Line(2,10, nx, ny);
+        Line(2,11, nx, ny);
+        arrow(180,nx[0] + dx,ny[0], NULL);
+        arrow(-130,nx[1] + dx,ny[1] - dy * 0.3, NULL);
+        arrow(0,nx[2]-dx,ny[2], NULL);
+        arrow(-30.0, nx[4] - dx * 0.6, ny[4] - dy * 0.7, NULL);
+        arrow(-40.0, nx[6] - dx * 0.6, ny[6] - dy * 0.7, NULL);
+        arrow(-60.0, nx[7] - dx * 0.5, ny[7] - dy, NULL);
+        arrow(-75, nx[8] - dx * 0.2, ny[8] - dy, NULL);
+        arrow(-100, nx[9] - dx * 0.1, ny[9] - dy * 0.9, NULL);
+        arrow(-110.0, nx[10] - dx * -0.3, ny[10] - dy * 0.9, NULL);
+        // 3
+        arrow(180,nx[1] + dx,ny[1], NULL);
+        arrow(-90,nx[8],ny[8] - dy, NULL);
+        Line(3,8,nx, ny);
+        Line(3,9,nx, ny);
+        Line(3,10,nx, ny);
 
-      //4
-      Line(4,5,nx, ny);
-      Line(4,6,nx, ny);
-      Line(4,7,nx, ny);
-      Line(4,8,nx, ny);
-      Line(4,9,nx, ny);
-      arrow(0,nx[4]-dx,ny[4], NULL);
-      arrow(-60.0, nx[5] - dx * 0.4, ny[5] - dy * 0.9, NULL);
-      arrow(-90,nx[6],ny[6] - dy, NULL);
-      arrow(-100.0, nx[7] - dx * -0.2, ny[7] - dy * 0.9, NULL);
-      Ellipse(hdc, nx[3] + 30, ny[3] - 50, nx[3] - 30, ny[3]);
-      Arc(hdc, nx[0], ny[0] - 40, nx[3], ny[3] + 40, nx[3], ny[3], nx[0], ny[0]);
-      arrow(-130,nx[3] + dx,ny[3] - dy * 0.3, NULL);
+        //4
+        Arc(hdc, nx[0], ny[0] - 40, nx[3], ny[3] + 40, nx[3], ny[3], nx[0], ny[0]);
+        Line(4,5,nx, ny);
+        Line(4,6,nx, ny);
+        Line(4,7,nx, ny);
+        Line(4,8,nx, ny);
+        Line(4,9,nx, ny);
+        arrow(0,nx[4]-dx,ny[4], NULL);
+        arrow(-60.0, nx[5] - dx * 0.4, ny[5] - dy * 0.9, NULL);
+        arrow(-90,nx[6],ny[6] - dy, NULL);
+        arrow(-100.0, nx[7] - dx * -0.2, ny[7] - dy * 0.9, NULL);
 
-      //5
-      Arc(hdc, nx[2], ny[2] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[2], ny[2]);
-      Arc(hdc, nx[4] + 40, ny[4] - 40, nx[6] - 40, ny[6] + 40, nx[6], ny[6], nx[4] + 40, ny[4] - 40);
-      Arc(hdc, nx[1], ny[1] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[1], ny[1]);
-      Line(5,11, nx,ny);
-      MoveToEx(hdc, nx[4], ny[4], NULL);
-      LineTo(hdc, nx[5] - 60, ny[5]);
-      MoveToEx(hdc, nx[5] - 60, ny[5], NULL);
-      LineTo(hdc, nx[7], ny[7]);
-      MoveToEx(hdc, nx[4], ny[4], NULL);
-      LineTo(hdc, nx[6] - 60, ny[6]);
-      MoveToEx(hdc, nx[6] - 60, ny[6], NULL);
-      LineTo(hdc, nx[8], ny[8]);
-      arrow(-150.0, nx[1] - dx * -0.7, ny[1] - dy * 0.8, NULL);
-      arrow(180,nx[3] + dx,ny[3], NULL);
-      arrow(-220,nx[6] + dx * 0.3,ny[6] - dy * -1.0, NULL);
-      arrow(-155.0, nx[10] - dx * -0.8, ny[10] - dy * 0.3, NULL);
+        //5
+        Arc(hdc, nx[4] + 40, ny[4] - 40, nx[6] - 40, ny[6] + 40, nx[6], ny[6], nx[4] + 40, ny[4] - 40);
+        Line(5,11, nx,ny);
+        MoveToEx(hdc, nx[4], ny[4], NULL);
+        LineTo(hdc, nx[5] - 60, ny[5]);
+        MoveToEx(hdc, nx[5] - 60, ny[5], NULL);
+        LineTo(hdc, nx[7], ny[7]);
+        MoveToEx(hdc, nx[4], ny[4], NULL);
+        LineTo(hdc, nx[6] - 60, ny[6]);
+        MoveToEx(hdc, nx[6] - 60, ny[6], NULL);
+        LineTo(hdc, nx[8], ny[8]);
+        arrow(-150.0, nx[1] - dx * -0.7, ny[1] - dy * 0.8, NULL);
+        arrow(180,nx[3] + dx,ny[3], NULL);
+        arrow(-220,nx[6] + dx * 0.3,ny[6] - dy * -1.0, NULL);
+        arrow(-155.0, nx[10] - dx * -0.8, ny[10] - dy * 0.3, NULL);
 
 
-      // 6
-      Arc(hdc, nx[5] + 40, ny[5] - 40, nx[7] - 40, ny[7] + 40, nx[7], ny[7], nx[5] + 40, ny[5] - 40);
-      Line(6,11,nx, ny);
-      arrow(150,nx[1] + dx * 0.9,ny[1] - dy * -0.3 , NULL);
-      arrow(-220,nx[7] + dx * 0.3,ny[7] - dy * -1.0, NULL);
+        // 6
+        Arc(hdc, nx[5] + 40, ny[5] - 40, nx[7] - 40, ny[7] + 40, nx[7], ny[7], nx[5] + 40, ny[5] - 40);
+        Line(6,11,nx, ny);
+        arrow(150,nx[1] + dx * 0.9,ny[1] - dy * -0.3 , NULL);
+        arrow(-220,nx[7] + dx * 0.3,ny[7] - dy * -1.0, NULL);
 
-      // 7
-      Line(7,8,nx, ny);
-      Line(7,11,nx, ny);
-      arrow(-230, nx[1] + dx * 0.8, ny[1] + dy * 0.7, NULL);
+        // 7
+        Line(7,8,nx, ny);
+        Line(7,11,nx, ny);
+        arrow(-230, nx[1] + dx * 0.8, ny[1] + dy * 0.7, NULL);
 
-      // 8
-      Line(8, 10, nx, ny);
-      arrow(-260, nx[2] + dx * 0.2, ny[2] + dy, NULL);
-      arrow(70,nx[6] + dx * -0.5,ny[6] - dy * -0.9, NULL);
+        // 8
+        arrow(-260, nx[2] + dx * 0.2, ny[2] + dy, NULL);
+        arrow(70,nx[6] + dx * -0.5,ny[6] - dy * -0.9, NULL);
 
-      // 9
-      Ellipse(hdc, nx[8] + 30, ny[8] + 50, nx[8] - 30, ny[8]);
-      arrow(80,nx[3] + dx * -0.2,ny[3] - dy * -0.9, NULL);
-      arrow(65,nx[4] + dx * -0.7,ny[4] - dy * -0.8, NULL);
-      arrow(50,nx[8] - dx * 0.9,ny[8] + dy * 0.2, NULL);
+        // 9
+        Ellipse(hdc, nx[8] + 30, ny[8] + 50, nx[8] - 30, ny[8]);
+        arrow(80,nx[3] + dx * -0.2,ny[3] - dy * -0.9, NULL);
+        arrow(65,nx[4] + dx * -0.7,ny[4] - dy * -0.8, NULL);
+        arrow(50,nx[8] - dx * 0.9,ny[8] + dy * 0.2, NULL);
 
-      // 10
-      arrow(30,nx[4] + dx * -0.7,ny[4] - dy * -0.8, NULL);
-      arrow(65,nx[2] + dx * -0.3,ny[2] - dy * -0.8, NULL);
-      arrow(-25, nx[7] - dx * 0.9, ny[7] - dy * 0.2, NULL);
-      Line(10, 5, nx, ny);
+        // 10
+        arrow(65,nx[2] + dx * -0.3,ny[2] - dy * -0.8, NULL);
 
-      // 11
-      arrow(0,nx[5]-dx,ny[5] + dy * 0.3, NULL);
-      arrow(-10.0,nx[6]-dx,ny[6] - dy * 0.2, NULL);
+        // 11
+        arrow(0,nx[5]-dx,ny[5] + dy * 0.3, NULL);
+        arrow(-10.0,nx[6]-dx,ny[6] - dy * 0.2, NULL);
       } else {
-      Rectangle(hdc, 0, 0, 900, 700);
-      // 1
-      Line(1,2, nx, ny);
-      Line(1,9, nx, ny);
-      Line(1,6, nx, ny);
+        Rectangle(hdc, 0, 0, 900, 700);
+        // 1
+        Line(1,2, nx, ny);
+        Line(1,9,nx, ny);
 
-      // 2
-      Ellipse(hdc, nx[1] + 30, ny[1] - 50, nx[1] - 30, ny[1]);
-      Line(2,3,nx, ny);
-      Arc(hdc, nx[1], ny[1] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[1], ny[1]);
-      Line(2,6, nx, ny);
-      Line(2,7, nx, ny);
-      Line(2,8, nx, ny);
-      Line(2,9, nx, ny);
-      Line(2,10, nx, ny);
-      Line(2,11, nx, ny);
+        // 2
+        Ellipse(hdc, nx[1] + 30, ny[1] - 50, nx[1] - 30, ny[1]);
+        Line(2,3,nx, ny);
+        Arc(hdc, nx[1], ny[1] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[1], ny[1]);
+        Line(2,6, nx, ny);
+        Line(2,7, nx, ny);
+        Line(2,8, nx, ny);
+        Line(2,9, nx, ny);
+        Line(2,10, nx, ny);
+        Line(2,11, nx, ny);
 
 
-      // 3
-      Arc(hdc, nx[0], ny[0] - 40, nx[2], ny[2] + 40, nx[2], ny[2], nx[0], ny[0]);
-      Line(3,8,nx, ny);
-      Line(3,9,nx, ny);
-      Line(3,10,nx, ny);
+        // 3
+        Line(3,8,nx, ny);
+        Line(3,9,nx, ny);
+        Line(3,10,nx, ny);
 
-      //4
-      Ellipse(hdc, nx[3] + 30, ny[3] - 50, nx[3] - 30, ny[3]);
-      Arc(hdc, nx[2], ny[2] - 40, nx[4], ny[4] + 40, nx[4], ny[4], nx[2], ny[2]);
-      Arc(hdc, nx[0], ny[0] - 40, nx[3], ny[3] + 40, nx[3], ny[3], nx[0], ny[0]);
-      Line(4,5,nx, ny);
-      Line(4,6,nx, ny);
-      Line(4,7,nx, ny);
-      Line(4,8,nx, ny);
-      Line(4,9,nx, ny);
+        //4
+        Arc(hdc, nx[0], ny[0] - 40, nx[3], ny[3] + 40, nx[3], ny[3], nx[0], ny[0]);
+        Line(4,5,nx, ny);
+        Line(4,6,nx, ny);
+        Line(4,7,nx, ny);
+        Line(4,8,nx, ny);
+        Line(4,9,nx, ny);
 
-      //5
-      Arc(hdc, nx[4] + 40, ny[4] - 40, nx[6] - 40, ny[6] + 40, nx[6], ny[6], nx[4] + 40, ny[4] - 40);
-      Line(5,10, nx,ny);
-      Line(5,11, nx,ny);
-      MoveToEx(hdc, nx[4], ny[4], NULL);
-      LineTo(hdc, nx[5] - 60, ny[5]);
-      MoveToEx(hdc, nx[5] - 60, ny[5], NULL);
-      LineTo(hdc, nx[7], ny[7]);
-      MoveToEx(hdc, nx[4], ny[4], NULL);
-      LineTo(hdc, nx[6] - 60, ny[6]);
-      MoveToEx(hdc, nx[6] - 60, ny[6], NULL);
-      LineTo(hdc, nx[8], ny[8]);
+        //5
+        Arc(hdc, nx[4] + 40, ny[4] - 40, nx[6] - 40, ny[6] + 40, nx[6], ny[6], nx[4] + 40, ny[4] - 40);
+        Line(5,11, nx,ny);
+        MoveToEx(hdc, nx[4], ny[4], NULL);
+        LineTo(hdc, nx[5] - 60, ny[5]);
+        MoveToEx(hdc, nx[5] - 60, ny[5], NULL);
+        LineTo(hdc, nx[7], ny[7]);
+        MoveToEx(hdc, nx[4], ny[4], NULL);
+        LineTo(hdc, nx[6] - 60, ny[6]);
+        MoveToEx(hdc, nx[6] - 60, ny[6], NULL);
+        LineTo(hdc, nx[8], ny[8]);
 
-      // 6
-      Arc(hdc, nx[5] + 40, ny[5] - 40, nx[7] - 40, ny[7] + 40, nx[7], ny[7], nx[5] + 40, ny[5] - 40);
-      Line(6,11,nx, ny);
+        // 6
+        Arc(hdc, nx[5] + 40, ny[5] - 40, nx[7] - 40, ny[7] + 40, nx[7], ny[7], nx[5] + 40, ny[5] - 40);
+        Line(6,11,nx, ny);
 
-      // 7
-      Line(7,8,nx, ny);
-      Line(7,11,nx, ny);
+        // 7
+        Line(7,8,nx, ny);
+        Line(7,11,nx, ny);
 
-      // 8
-      Line(8, 10, nx, ny);
-
-      // 9
-      Ellipse(hdc, nx[8] + 30, ny[8] + 50, nx[8] - 30, ny[8]);
+        // 9
+        Ellipse(hdc, nx[8] + 30, ny[8] + 50, nx[8] - 30, ny[8]);
       }
 
       SelectObject(hdc, BPen);

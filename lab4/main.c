@@ -1027,9 +1027,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam) {
 
         int n = 11;
         double **T = randm(n);
-        double **A = mulmr(T, 1.0 - 0.005 - 0.02 - 0.27, n);
+        double **A = mulmr(T, 1.0 - 0.01 - 0.04 - 0.3, n);
         double **R = randm(n);
-        double **S = symmetricMatrix(mulmr(R, 1.0 - 0.005 - 0.02 - 0.27, n), n);
+        double **S = symmetricMatrix(mulmr(R, 1.0 - 0.01 - 0.04 - 0.3, n), n);
         double **squaredReachMatrix = squareMatrix(reachMatrix(A, n), n);
         int componentCount;
         int** components = findStronglyConnectedComponents(squaredReachMatrix, n, &componentCount);
